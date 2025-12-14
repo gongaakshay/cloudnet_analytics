@@ -1,0 +1,15 @@
+[Unit]
+Description=An App Log Generator Service From App Server VM For Project
+After=network.target
+
+[Service]
+ExecStart=<PATH>/generate_app_logs.sh
+Restart=always
+User=<User>
+Group=<Group>
+WorkingDirectory=<Working DIR>
+StandardOutput=append:/var/log/app-log-generator.log
+StandardError=append:/var/log/app-log-generator.log
+
+[Install]
+WantedBy=multi-user.target
